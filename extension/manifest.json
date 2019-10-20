@@ -1,0 +1,47 @@
+{
+	"manifest_version": 2,
+	"name": "Quick find list item",
+	"description": "Quick find item in an HTML select element (drop-down lists and list boxes).",
+	"version": "1.0.0",
+	"background": {
+		"scripts": [
+			"js/background.js"
+		]
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"file://*/*",
+				"http://*/*",
+				"https://*/*"
+			],
+			"js": [
+				"js/content_script.js"
+			],
+			"css": [
+				"css/content_script.css"
+			],
+			"all_frames": true
+		}
+	],
+	"commands": {
+		"quick_find_item": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+Down"
+			},
+			"description": "Quick find item in a list"
+		 }		
+	},
+	"icons": {
+		"128": "img/icon-128px.png",
+		"16": "img/icon-16px.png",
+		"48": "img/icon-48px.png"
+	},
+	"permissions": [
+		"contextMenus",
+		"tabs",
+		"http://*/*",
+		"https://*/*"
+	],
+	"update_url": "http://clients2.google.com/service/update2/crx"
+}
