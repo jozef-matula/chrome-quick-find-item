@@ -163,7 +163,7 @@ chrome.runtime.onMessage.addListener(function(request, sender/*, sendResponse*/)
 	elemDivPopup.style.fontSize = style.fontSize;
 	elemDivPopup.style.fontWeith = style.fontWeight;
 	elemDivPopup.style.fontStyle = style.fontStyle;
-	elemQueryInput.style.height = style.height;
+	elemQueryInput.style.height = '1em';
 	elemQueryInput.style.minWidth = style.width;
 	elemResultsList.innerHTML = '<small>Start typing...</small>';
 
