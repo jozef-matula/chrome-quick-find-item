@@ -155,10 +155,17 @@ chrome.runtime.onMessage.addListener(function(request, sender/*, sendResponse*/)
 
 	var pos = cumulativeOffset(elemToWorkWith);
 	elemDivCover.style.display = 'block';
-	elemDivPopup.style.left = (pos.left - 5) + "px";
-	elemDivPopup.style.top = (pos.top - 5) + "px";
+	elemDivPopup.style.left = (pos.left - 8) + "px";
+	elemDivPopup.style.top = (pos.top - 8) + "px";
 	elemDivPopup.style.display = 'block';
-	elemQueryInput.style.height = elemToWorkWith.innerHeight + "px";
+	var style = window.getComputedStyle(elemToWorkWith);
+	elemDivPopup.style.fontFamily = style.fontFamily;
+	elemDivPopup.style.fontSize = style.fontSize;
+	elemDivPopup.style.fontWeith = style.fontWeight;
+	elemDivPopup.style.fontStyle = style.fontStyle;
+	elemQueryInput.style.height = style.height;
+	elemQueryInput.style.minWidth = style.width;
+	console.log("elemQueryInput.style.minWidth="+elemQueryInput.style.minWidth);
 	elemResultsList.innerHTML = '<small>Start typing...</small>';
 
 	//sendResponse({});
