@@ -15,6 +15,11 @@
 	position: absolute;
 	border: 3px inset;
 	z-index: 99999;
+	overflow: none;
+}
+
+#quick-find-item-results {
+	overflow: auto;
 }
 
 #quick-find-item-list {
@@ -22,7 +27,8 @@
 	padding: 0;
 	list-style: none;
 	display: block;
-	overflow: hidden;
+	max-height: 10em;
+	overflow: none;
 }
 
 #quick-find-item-list {

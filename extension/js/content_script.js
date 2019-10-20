@@ -52,8 +52,10 @@ var handleKeyDown = function(event) {
 				++selectedIndex;
 			if(event.key == "ArrowUp" && selectedIndex - 1 >= 0)
 				--selectedIndex;
-			if(selectedIndex < options.length)
+			if(selectedIndex < options.length) {
 				options[selectedIndex].className = "selected";
+				options[selectedIndex].scrollIntoView(false);
+			}
 		}
 		else if(event.key == "Enter") {
 			var options = elemResultsList.getElementsByTagName('li');
@@ -133,7 +135,8 @@ chrome.runtime.onMessage.addListener(function(request, sender/*, sendResponse*/)
 	if(elemDivPopup == null) {
 		elemDivPopup = document.createElement("div");
 		elemDivPopup.id = 'quick-find-item-popup';
-		elemDivPopup.innerHTML = '<div id="quick-find-item-input"></div><ul id="quick-find-item-list"></ul>';
+		elemDivPopup.innerHTML = '<div id="quick-find-item-input"></div>' +
+				'<div id="quick-find-item-results"/><ul id="quick-find-item-list"></ul></div>';
 
 		var body = document.getElementsByTagName('body')[0];
 
