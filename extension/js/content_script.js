@@ -30,7 +30,8 @@ var handleKeyDown = function(event) {
 		}
 		else if(event.key == "Backspace") {
 			if(elemQueryInput.value.length) {
-				elemQueryInput.value = elemQueryInput.innerText.substring(0, elemQueryInput.value.length - 1);
+				elemQueryInput.value = elemQueryInput.value.substring(0, elemQueryInput.value.length - 1);
+				elemQueryInput.innerText = elemQueryInput.value;
 				elemQueryInput.dispatchEvent(new Event('change', {}));
 			}
 		}
@@ -125,10 +126,13 @@ chrome.runtime.onMessage.addListener(function(request, sender/*, sendResponse*/)
 		elemToWorkWith = document.activeElement;
 	else
 		return;
-	if(elemToWorkWith == null || elemToWorkWith.tagName != 'SELECT') {
+	if(elemToWorkWith && elemToWorkWith.tagName == 'OPTION')
+		elemToWorkWith = elemToWorkWith.parentElement;
+	if(!elemToWorkWith || elemToWorkWith.tagName != 'SELECT') {
 		alert('This function works only on SELECT elements.');
 		return;
 	}
+	elemToWorkWith.blur(); // close pop-up not to interfere with our UI
 
 	elemDivPopup = document.getElementById('quick-find-item-popup');
 
