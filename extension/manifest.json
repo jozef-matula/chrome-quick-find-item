@@ -1,8 +1,8 @@
 {
 	"manifest_version": 2,
-	"name": "Quick find list item",
+	"name": "Quick Find List Item",
 	"description": "Quick find item in an HTML select element (drop-down lists and list boxes).",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"background": {
 		"scripts": [
 			"js/background.js"
