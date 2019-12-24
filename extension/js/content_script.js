@@ -79,6 +79,11 @@ var handleKeyDown = function(event) {
 	}
 }
 
+var handleItemClick = function(event) {
+	elemToWorkWith.value = this.data;
+	killFocus();
+}
+
 var updateResults = function() {
 	elemResultsList.innerHTML = ''; // remove all children
 	if(!elemQueryInput.value) {
@@ -92,6 +97,8 @@ var updateResults = function() {
 			var elemItem = document.createElement('li');
 			elemItem.data = allOptions[i].value;
 			elemItem.innerText = allOptions[i].innerText;
+			elemItem.onclick = handleItemClick;
+			elemItem.onclick = handleItemClick;
 			if(foundItems == 0)
 				elemItem.className = "selected";
 			elemResultsList.appendChild(elemItem);
