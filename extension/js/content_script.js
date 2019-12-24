@@ -13,6 +13,7 @@ document.addEventListener("mousedown", function(event) {
 var killFocus = function() {
 	elemDivCover.style.display = 'none';
 	elemDivPopup.style.display = 'none';
+	elemToWorkWith.focus();
 }
 
 var escapeHTML = function (s) {
